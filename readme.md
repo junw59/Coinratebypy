@@ -19,9 +19,12 @@ coin rate的结果绘制为网络图，包括了挑选：
 1. cr>0.5的作为连边的两种不同排列类型的图
 
 ![绘图方式：kamada_kawai_layout](./data/network_sd/network_SD01_u500_c.5.png )
+
+<div align=center><img src="./data/network_sd/network_SD01_u500_c.5.png" width="250" height="250"/>
+
 ![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_.5.png)
 
-2. cr最大的对象的连边
+1. cr最大的对象的连边
 
 ![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_max.png)
 
