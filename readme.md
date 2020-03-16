@@ -20,7 +20,7 @@ coin rate的结果绘制为网络图，包括了挑选：
 
 ![绘图方式：kamada_kawai_layout](./data/network_sd/network_SD01_u500_c.5.png )
 
-<div align=center><img src="./data/network_sd/network_SD01_u500_c.5.png" width="250" height="250"/>
+<div align=center><img src="./data/network_sd/network_SD01_u500_c.5.png" width=50% height=50%/>
 
 ![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_.5.png)
 
