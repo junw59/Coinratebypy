@@ -16,21 +16,29 @@
 
 coin rate的结果绘制为网络图，包括了挑选：
 
-1. cr>0.5的作为连边的两种不同排列类型的图
+1. cr>0.5的作为连边的两种不同排列类型的图(cr.5)
 
-![绘图方式：kamada_kawai_layout](./data/network_sd/network_SD01_u500_c.5.png )
+<div align=center>
+<img src="./data/network_sd/network_SD01_u500_c.5.png" width=75% height=75% alt="网络绘图" /><img src="./data/network_sd/network_SD01_u500_c_by_circular_.5.png" width=75% height=75% alt="网络绘图" />
 
-<div align=center><img src="./data/network_sd/network_SD01_u500_c.5.png" width=50% height=50% alt="绘图方式：kamada_kawai_layout"/>
+<em>(cr.5)绘图方式：circular_layout</em>
+</div>
 
-![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_.5.png)
+2. cr最大的对象的连边(cr_max)
 
-1. cr最大的对象的连边
+<div align=center>
+<img src="./data/network_sd/network_SD01_u500_c_by_circular_max.png" width=75% height=75% alt="网络绘图" />
 
-![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_max.png)
+<em>(cr_max)绘图方式：circular_layout</em>
+</div>
 
-3. cr>0.5的作为连边且保留每个节点最大的边
+3. cr>0.5的作为连边且保留每个节点最大的边(cr.5_re)
 
-![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_re.png)
+<div align=center>
+<img src="./data/network_sd/network_SD01_u500_c_by_circular_re.png" width=75% height=75% alt="网络绘图" />
+
+<em>(cr.5_re)绘图方式：circular_layout</em>
+</div>
 
 一共4张图  
 
@@ -38,13 +46,21 @@ coin rate的结果绘制为网络图，包括了挑选：
 
 来自文献的SD01数据：
 
-1. 挑选收信比例>50%的对象，连边
+1. 挑选收信比例>50%的对象连边(data.5)
 
-![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_data_by_circular.png)
+<div align=center>
+<img src="./data/network_sd/network_SD01_u500_data_by_circular.png" width=75% height=75% alt="网络绘图" />
 
-2. 挑选收信比例为所有对象的最大值的连边
+<em>(data.5)绘图方式：circular_layout</em>
+</div>
 
-![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_data_by_circular_max.png)
+2. 挑选收信比例为所有对象的最大值的连边(data_max)
+
+<div align=center>
+<img src="./data/network_sd/network_SD01_u500_data_by_circular_max.png" width=75% height=75% alt="网络绘图" />
+
+<em>(data_max)绘图方式：circular_layout</em>
+</div>
 
 一共2张图
 
@@ -63,4 +79,4 @@ coin rate的结果绘制为网络图，包括了挑选：
 |data.5|0.80|0.48|0.98|1.00|0.93|
 |data_max|0.75|0.51|0.91|0.93|1.00|
 
-值得注意的是(cr.5_re)与(data.5)的相似度达到了0.98，这表明这两个网络基本相同而(cr.5_re)是依据coin rate得出的网络，而(data.5)是依据SD01数据直接画出的网络，这两个网络的形成方式不同，却有高度的相似性，这表明coin rate作为衡量社交网络的方法非常接近实际情况
+值得注意的是(cr.5_re)与(data.5)的相似度达到了0.98，这表明这两个网络基本相同而(cr.5_re)是依据coin rate得出的网络，而(data.5)是依据SD01数据直接画出的网络，这两个网络的形成方式不同，却有高度的相似性，这表明coin rate作为衡量社交网络的方法非常接近实际情况。
