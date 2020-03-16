@@ -18,16 +18,16 @@ coin rate的结果绘制为网络图，包括了挑选：
 
 1. cr>0.5的作为连边的两种不同排列类型的图
 
-![绘图方式：kamada_kawai_layout](.\data\network_sd\network_SD01_u500_c.5.png )
-![绘图方式：circular_layout](.\data\network_sd\network_SD01_u500_c_by_circular_.5.png)
+![绘图方式：kamada_kawai_layout](./data/network_sd/network_SD01_u500_c.5.png )
+![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_.5.png)
 
 2. cr最大的对象的连边
 
-![绘图方式：circular_layout](.\data\network_sd\network_SD01_u500_c_by_circular_max.png)
+![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_max.png)
 
 3. cr>0.5的作为连边且保留每个节点最大的边
 
-![绘图方式：circular_layout](.\data\network_sd\network_SD01_u500_c_by_circular_re.png)
+![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_c_by_circular_re.png)
 
 一共4张图  
 
@@ -37,11 +37,11 @@ coin rate的结果绘制为网络图，包括了挑选：
 
 1. 挑选收信比例>50%的对象，连边
 
-![绘图方式：circular_layout](.\data\network_sd\network_SD01_u500_data_by_circular.png)
+![绘图方式：circular_layout](./data/network_sd/network_SD01_u500_data_by_circular.png)
 
 2. 挑选收信比例为所有对象的最大值的连边
 
-![绘图方式：circular_layout](.\data\network_sd\network_SD01_u500_data_by_circular_max.png)
+![绘图方式：circular_layout](./data/network_sd\network_SD01_u500_data_by_circular_max.png)
 
 一共2张图
 
