@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>数据分析</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90">数据分析</h1>
+<p>为了分析coin rate而编写python程序，作为毕业论文的课题。</p>
+<h2 id="%e9%9a%8f%e6%9c%ba%e6%95%b0%e6%8d%ae">随机数据</h2>
+<p>文件中包括了对随机数据的模拟，随机数据计算其coin rate。</p>
+<h2 id="%e6%96%87%e7%8c%ae%e7%9a%84%e6%95%b0%e6%8d%ae">文献的数据</h2>
+<p>分析文献中的SD数据（来自公司员工的短信息交流数据）。</p>
+<h2 id="%e7%bb%98%e5%88%b6%e7%bd%91%e7%bb%9c">绘制网络</h2>
+<h3 id="coin-rate">coin rate</h3>
+<p>coin rate的结果绘制为网络图，包括了挑选：</p>
+<ol>
+<li>cr&gt;0.5的作为连边的两种不同排列类型的图(cr.5)</li>
+</ol>
+<div align=center>
+<img src="file:///c:\Users\junw5\Documents\My_Work\Coinratebypy\data\network_sd\network_SD01_u500_c.5.png" width=75% height=75% alt="网络绘图" /><img src="file:///c:\Users\junw5\Documents\My_Work\Coinratebypy\data\network_sd\network_SD01_u500_c_by_circular_.5.png" width=75% height=75% alt="网络绘图" />
+<p><em>(cr.5)绘图方式：circular_layout</em></p>
+</div>
+<ol start="2">
+<li>cr最大的对象的连边(cr_max)</li>
+</ol>
+<div align=center>
+<img src="file:///c:\Users\junw5\Documents\My_Work\Coinratebypy\data\network_sd\network_SD01_u500_c_by_circular_max.png" width=75% height=75% alt="网络绘图" />
+<p><em>(cr_max)绘图方式：circular_layout</em></p>
+</div>
+<ol start="3">
+<li>cr&gt;0.5的作为连边且保留每个节点最大的边(cr.5_re)</li>
+</ol>
+<div align=center>
+<img src="file:///c:\Users\junw5\Documents\My_Work\Coinratebypy\data\network_sd\network_SD01_u500_c_by_circular_re.png" width=75% height=75% alt="网络绘图" />
+<p><em>(cr.5_re)绘图方式：circular_layout</em></p>
+</div>
+<p>一共4张图</p>
+<h3 id="sd-%e6%95%b0%e6%8d%ae">SD 数据</h3>
+<p>来自文献的SD01数据：</p>
+<ol>
+<li>挑选收信比例&gt;50%的对象连边(data.5)</li>
+</ol>
+<div align=center>
+<img src="file:///c:\Users\junw5\Documents\My_Work\Coinratebypy\data\network_sd\network_SD01_u500_data_by_circular.png" width=75% height=75% alt="网络绘图" />
+<p><em>(data.5)绘图方式：circular_layout</em></p>
+</div>
+<ol start="2">
+<li>挑选收信比例为所有对象的最大值的连边(data_max)</li>
+</ol>
+<div align=center>
+<img src="file:///c:\Users\junw5\Documents\My_Work\Coinratebypy\data\network_sd\network_SD01_u500_data_by_circular_max.png" width=75% height=75% alt="网络绘图" />
+<p><em>(data_max)绘图方式：circular_layout</em></p>
+</div>
+<p>一共2张图</p>
+<h3 id="%e7%bd%91%e7%bb%9c%e7%9a%84%e7%9b%b8%e4%bc%bc%e6%80%a7">网络的相似性</h3>
+<blockquote>
+<p>定义网络的相似性：连边集合1和连边集合2的交集与并集的比例作为网络的相似性的度量</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>i</mi><mi>m</mi><mo>=</mo><mfrac><mrow><mi>e</mi><mi>d</mi><mi>g</mi><mn>1</mn><mo>∩</mo><mi>e</mi><mi>d</mi><mi>g</mi><mn>2</mn></mrow><mrow><mi>e</mi><mi>d</mi><mi>g</mi><mn>1</mn><mo>∪</mo><mi>e</mi><mi>d</mi><mi>g</mi><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">sim=\frac{edg1\cap edg2}{edg1\cup edg2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</blockquote>
+<p>由此可以得出上列网络图中的不同网络的相似度</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">相似度</th>
+<th style="text-align:center">cr.5</th>
+<th style="text-align:center">cr_max</th>
+<th style="text-align:center">cr.5_re</th>
+<th style="text-align:center">data.5</th>
+<th style="text-align:center">data_max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cr.5</td>
+<td style="text-align:center">1.00</td>
+<td style="text-align:center">0.42</td>
+<td style="text-align:center">0.82</td>
+<td style="text-align:center">0.80</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:left">cr_max</td>
+<td style="text-align:center">0.42</td>
+<td style="text-align:center">1.00</td>
+<td style="text-align:center">0.47</td>
+<td style="text-align:center">0.48</td>
+<td style="text-align:center">0.51</td>
+</tr>
+<tr>
+<td style="text-align:left">cr.5_re</td>
+<td style="text-align:center">0.82</td>
+<td style="text-align:center">0.47</td>
+<td style="text-align:center">1.00</td>
+<td style="text-align:center">0.98</td>
+<td style="text-align:center">0.91</td>
+</tr>
+<tr>
+<td style="text-align:left">data.5</td>
+<td style="text-align:center"><strong>0.80</strong></td>
+<td style="text-align:center"><strong>0.48</strong></td>
+<td style="text-align:center"><strong>0.98</strong></td>
+<td style="text-align:center">1.00</td>
+<td style="text-align:center">0.93</td>
+</tr>
+<tr>
+<td style="text-align:left">data_max</td>
+<td style="text-align:center"><strong>0.75</strong></td>
+<td style="text-align:center"><strong>0.51</strong></td>
+<td style="text-align:center"><strong>0.91</strong></td>
+<td style="text-align:center">0.93</td>
+<td style="text-align:center">1.00</td>
+</tr>
+</tbody>
+</table>
+<p>值得注意的是(cr.5_re)与(data.5)的相似度达到了0.98，这表明这两个网络基本相同而(cr.5_re)是依据coin rate得出的网络，而(data.5)是依据SD01数据直接画出的网络，这两个网络的形成方式不同，却有高度的相似性，这表明coin rate作为衡量社交网络的方法非常接近实际情况。</p>
+
+    </body>
+    </html>
