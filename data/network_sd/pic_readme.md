@@ -52,6 +52,7 @@ $$r_{p}(\Delta T, \tau)=\frac{1}{N_{A}} \sum_{i=1}^{N_{A}} \Theta\left[\sum_{j=1
 
 计算的方式是circular，使用的coinrate strong是更强的联系，计算公式是：
 $$r_{double}(\Delta T)=\frac{1}{N_{A}} \sum_{i=1}^{N_{A}} \Theta\left[\sum_{j=1}^{N_{B}} \left(1_{[0, \Delta T]}(t_{j-1}^{B}-t_{i}^{A})\times 1_{[0, \Delta T]}(t_{i}^{A}-t_{j}^{B})\right)\right]$$
+其中$\Delta T=600$
 
 #### coinrate strong >0.5
 
